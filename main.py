@@ -3,8 +3,8 @@ from dividend_tracker.analysis import calculate_annual_dividends, calculate_divi
 from dividend_tracker.formatting import format_usd, format_percent
 
 def main():
-    tickers = ["SWK", "MSFT", "AAPL"]
-    #ticker_symbol = "SWK"
+    tickers = ["AOS", "ABBV", "ALB", "BDX", "CSL", "CAT", "CL", "DOV", "ED", "EMR",
+    "ITW", "JNJ", "LOW", "MDT", "NEE", "PEP", "O", "ROP", "SWK", "TGT", "KO"]
 
     for ticker_symbol in tickers:
         print(f"\n{'='*40}")
