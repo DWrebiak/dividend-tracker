@@ -1,10 +1,13 @@
 from dividend_tracker.data import get_ticker_data
 from dividend_tracker.analysis import calculate_annual_dividends, calculate_dividend_cagr
 from dividend_tracker.formatting import format_usd, format_percent
+from dividend_tracker.utils import save_dividends_to_csv
 
 def main():
-    tickers = ["AOS", "ABBV", "ALB", "BDX", "CSL", "CAT", "CL", "DOV", "ED", "EMR",
-    "ITW", "JNJ", "LOW", "MDT", "NEE", "PEP", "O", "ROP", "SWK", "TGT", "KO"]
+    #tickers = ["AOS", "ABBV", "ALB", "BDX", "CSL", "CAT", "CL", "DOV", "ED", "EMR",
+    #"ITW", "JNJ", "LOW", "MDT", "NEE", "PEP", "O", "ROP", "SWK", "TGT", "KO"]
+    tickers = ["AOS", "ABBV"]
+    all_data = []
 
     for ticker_symbol in tickers:
         print(f"\n{'='*40}")
@@ -32,6 +35,17 @@ def main():
         print("=== Dividend CAGR (annual sums, only full years) ===")
         for label, value in cagr_results.items():
             print(f"📈 {label} CAGR:", format_percent(value))
+
+        record = {
+            "Ticker": ticker_symbol,
+            "Stock price": format_usd(price),
+            "Annual dividend": format_percent(dividend_yield, already_percent=True),
+            "Payout ratio": format_percent(payout_ratio),
+        }
+
+        all_data.append(record)
+
+    save_dividends_to_csv(all_data, "dividend_data.csv")
 
 if __name__ == "__main__":
     main()
