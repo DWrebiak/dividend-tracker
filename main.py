@@ -33,8 +33,8 @@ def main():
         cagr_results = calculate_dividend_cagr(annual_dividends, cagr_periods)
 
         print("=== Dividend CAGR (annual sums, only full years) ===")
-        for label, value in cagr_results.items():
-            print(f"📈 {label} CAGR:", format_percent(value))
+        for period, value in cagr_results.items():
+            print(f"📈 {period} CAGR:", format_percent(value))
 
         record = {
             "Ticker": ticker_symbol,
@@ -42,6 +42,9 @@ def main():
             "Annual dividend": format_percent(dividend_yield, already_percent=True),
             "Payout ratio": format_percent(payout_ratio),
         }
+
+        for period, value in cagr_results.items():
+            record[f"{period} CAGR"] = format_percent(value)
 
         all_data.append(record)
 
