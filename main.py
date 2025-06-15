@@ -14,15 +14,12 @@ def main():
         print(f"📊 Analysis for {ticker_symbol}")
         print(f"{'='*40}")
     
-        info, dividends, cashflow = get_ticker_data(ticker_symbol)
-
-        #print("Available cashflow rows:", cashflow.index.tolist())
+        info, dividends, cashflow = get_ticker_data(ticker_symbol)    
 
         price = info.get("currentPrice")
         dividend_rate = info.get("dividendRate")
         dividend_yield = info.get("dividendYield")
-        payout_ratio = info.get("payoutRatio")
-        #fcf = cashflow.loc["Total Cash From Operating Activities"] - cashflow.loc["Capital Expenditures"]
+        payout_ratio = info.get("payoutRatio")        
 
         fcf = None
         if "Free Cash Flow" in cashflow.index:
@@ -37,10 +34,9 @@ def main():
         print("📊 Dividend yield:", format_percent(dividend_yield, already_percent=True))
         print("📦 Payout ratio:", format_percent(payout_ratio))
         if fcf is not None:
-            print(f"🟢 FCF (Free Cash Flow): {format_usd(fcf)}")
+            print(f"🟢 FCF (Free Cash Flow): {format_usd(fcf, shorten=True)}")
         else:
-            print("🟢 FCF (Free Cash Flow): No data")
-        #print("🟢 FCF (Free Cash Flow):", fcf[0])
+            print("🟢 FCF (Free Cash Flow): No data")        
         print("")
         print()
 
@@ -57,6 +53,7 @@ def main():
             "Stock price": format_usd(price),
             "Annual dividend": format_percent(dividend_yield, already_percent=True),
             "Payout ratio": format_percent(payout_ratio),
+            "Free Cash Flow": format_usd(fcf, shorten=True),
         }
 
         for period, value in cagr_results.items():
