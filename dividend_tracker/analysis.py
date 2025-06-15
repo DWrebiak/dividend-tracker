@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime
 
 def calculate_annual_dividends(dividends: pd.Series) -> dict:
-    if dividends.empty:
+    if dividends is None or dividends.empty:
         return {}
 
     dividends.index = pd.to_datetime(dividends.index).tz_localize(None)
