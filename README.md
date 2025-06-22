@@ -1,7 +1,7 @@
 # 📈 Dividend Tracker
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Version](https://img.shields.io/badge/version-v1.0.0-blue)
+![Version](https://img.shields.io/badge/version-v1.0.1-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-yellow)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen)
 
@@ -75,6 +75,7 @@ dividend-tracker/
 │   └── utils.py
 ├── requirements.txt         # Python dependencies
 ├── dividend_data.csv        # Output file with results
+├── CHANGELOG                # Changelog file
 ├── LICENSE                  # MIT License file
 └── README.md
 ```
