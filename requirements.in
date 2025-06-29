@@ -1,0 +1,14 @@
+beautifulsoup4
+curl_cffi
+frozendict
+multitasking
+numpy
+pandas
+peewee
+protobuf
+python-dateutil
+pytz
+requests
+websockets
+yfinance
+pip-tools
