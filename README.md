@@ -61,23 +61,36 @@ pip install -r requirements.txt
 
    The list of tickers is currently defined directly in `main.py`.
 
+4. (Optional) Customize the list of tickers
+
+   You can customize the list of companies to analyze by editing the `config/config.json` file or creating your own JSON config file with tickers. Then run the script specifying the config file path:
+
+   ```bash
+   python3 main.py --config config/your_config.json
+   ```
+
 ---
 
 ## 📦 Project Structure
 
 ```
 dividend-tracker/
-├── main.py                  # Main entry point
-├── dividend_tracker/        # Analysis and utility modules
-│   ├── analysis.py
-│   ├── data.py
-│   ├── formatting.py
-│   └── utils.py
-├── requirements.txt         # Python dependencies
-├── dividend_data.csv        # Output file with results
-├── CHANGELOG                # Changelog file
-├── LICENSE                  # MIT License file
-└── README.md
+├── CHANGELOG.md        # Changelog file
+├── config/             # Configuration files for different setups
+│ ├── config.json       # Default config file
+│ └── config_sp500.json # Config for S&P 500 tickers
+├── dividend_data.csv   # Output file with dividend data
+├── dividend_tracker/   # Core modules for data analysis and utilities
+│ ├── init.py           # Package initializer
+│ ├── analysis.py       # Data analysis functions
+│ ├── data.py           # Data fetching and processing
+│ ├── formatting.py     # Formatting utilities
+│ └── utils.py          # Helper functions (e.g. config loading, CSV saving)
+├── LICENSE             # MIT License file
+├── main.py             # Main entry point script
+├── README.md           # Project documentation
+├── requirements.in     # Python dependencies input file
+└── requirements.txt    # Python dependencies lock file
 ```
 
 ---
