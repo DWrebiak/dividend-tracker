@@ -92,6 +92,17 @@ You are free to use, copy, modify, merge, publish, distribute, sublicense, and/o
 
 ---
 
+## ⚠️ Disclaimer
+
+This tool is created solely for personal use and educational purposes. It is **not intended as financial or investment advice**.
+
+All decisions based on the data or suggestions provided by this tool are made at the user's own risk.  
+The author is **not a licensed financial advisor** and assumes no responsibility for any financial losses incurred through the use of this project.
+
+Always conduct your own research or consult a certified financial professional before making any investment decisions.
+
+---
+
 ## 🐛 Reporting Issues
 
 If used collaboratively, bugs or suggestions can be tracked using GitHub Issues with appropriate labels (bug, enhancement, etc.).
