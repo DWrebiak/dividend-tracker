@@ -4,15 +4,27 @@
 
 import csv
 from typing import List, Dict
+from pathlib import Path
+from datetime import datetime
 
-def save_dividends_to_csv(data: List[Dict], filename: str):
+def save_dividends_to_csv(data: List[Dict], configname: str):
     if not data:
         print("No data to save.")
         return
 
+    export_dir = Path("exports")
+    export_dir.mkdir(exist_ok=True)
+
+    config_name = Path(configname).stem
+
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M")
+
+    filename = f"{timestamp}_dividend_data_{config_name}.csv"
+    file_path = export_dir / filename
+
     keys = data[0].keys()
 
-    with open(filename, mode='w', newline='', encoding='utf-8') as f:
+    with open(file_path, mode='w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=keys)
         writer.writeheader()
         writer.writerows(data)
@@ -44,4 +56,4 @@ def load_config():
     with open(args.config, "r") as f:
         config = json.load(f)
 
-    return config
+    return config, args.config

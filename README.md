@@ -79,13 +79,13 @@ dividend-tracker/
 ├── config/             # Configuration files for different setups
 │ ├── config.json       # Default config file
 │ └── config_sp500.json # Config for S&P 500 tickers
-├── dividend_data.csv   # Output file with dividend data
 ├── dividend_tracker/   # Core modules for data analysis and utilities
 │ ├── init.py           # Package initializer
 │ ├── analysis.py       # Data analysis functions
 │ ├── data.py           # Data fetching and processing
 │ ├── formatting.py     # Formatting utilities
 │ └── utils.py          # Helper functions (e.g. config loading, CSV saving)
+├── exports/            # Folder containing timestamped dividend CSV reports
 ├── LICENSE             # MIT License file
 ├── main.py             # Main entry point script
 ├── README.md           # Project documentation
@@ -122,7 +122,7 @@ If used collaboratively, bugs or suggestions can be tracked using GitHub Issues 
 
 ---
 
-❤️ Philosophy & Support
+## ❤️ Philosophy & Support
 
 This project was created as a personal tool to better understand dividend stocks and make more informed investment decisions.
 
