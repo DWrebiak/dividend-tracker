@@ -14,8 +14,16 @@ def main():
         print(f"\n{'='*40}")
         print(f"📊 Analysis for {ticker_symbol}")
         print(f"{'='*40}")
-    
-        info, dividends, cashflow = get_ticker_data(ticker_symbol)    
+
+        try:
+            info, dividends, cashflow = get_ticker_data(ticker_symbol)    
+        except Exception as e:
+            print(f"❌ Failed to fetch data for {ticker_symbol}: {e}")
+            continue
+
+        if not info or dividends is None or cashflow is None:
+            print(f"⚠️ Skipping {ticker_symbol} - no valid data returned.")
+            continue
 
         price = info.get("currentPrice")
         dividend_rate = info.get("dividendRate")
