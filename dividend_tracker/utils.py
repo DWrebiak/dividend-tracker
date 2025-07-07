@@ -47,13 +47,21 @@ def load_config():
         default="config/config.json",
         help="Path to configuration file (default: config/config.json)"
     )
+    parser.add_argument(
+        "--loop",
+        action="store_true",
+        help="Run script in a loop every 24 hours"
+    )
     args = parser.parse_args()
 
-    if not os.path.isfile(args.config):
-        print(f"[ERROR] Config file not found: {args.config}")
+    config_path = args.config
+    loop_mode = args.loop
+
+    if not os.path.isfile(config_path):
+        print(f"[ERROR] Config file not found: {config_path}")
         sys.exit(1)
 
-    with open(args.config, "r") as f:
+    with open(config_path, "r") as f:
         config = json.load(f)
 
-    return config, args.config
+    return config, config_path, loop_mode

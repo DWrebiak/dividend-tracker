@@ -55,11 +55,22 @@ pip install -r requirements.txt
 
 3. Run the main script:
 
+   Run the script with the default config:
    ```bash
    python3 main.py
    ```
-
-   The list of tickers is currently defined directly in `main.py`.
+   Run the script with a custom config file:
+   ```bash
+   python3 main.py --config config/config_sp500.json
+   ```
+   Run the script in automatic loop mode, once every 24 hours:
+   ```bash
+   python3 main.py --loop
+   ```
+   You can combine both arguments:
+   ```bash
+   python3 main.py --config config/config_sp500.json --loop
+   ```
 
 4. (Optional) Customize the list of tickers
 
