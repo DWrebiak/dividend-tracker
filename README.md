@@ -1,7 +1,7 @@
 # 📈 Dividend Tracker
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Version](https://img.shields.io/badge/version-v1.0.1-blue)
+![Version](https://img.shields.io/badge/version-v1.1.0-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-yellow)
 ![Status](https://img.shields.io/badge/status-development-orange)
 
@@ -63,10 +63,12 @@ pip install -r requirements.txt
    ```bash
    python3 main.py --config config/config_sp500.json
    ```
-   Run the script in automatic loop mode, once every 24 hours:
+   Run the script in automatic loop mode, once every 24 hours (useful on servers or long-running environments):
    ```bash
    python3 main.py --loop
    ```
+   Alternatively, you can use system schedulers like cron (Linux/macOS) or Task Scheduler (Windows) to automate execution externally.
+
    You can combine both arguments:
    ```bash
    python3 main.py --config config/config_sp500.json --loop
